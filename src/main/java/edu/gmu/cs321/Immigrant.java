@@ -10,6 +10,9 @@ public class Immigrant extends Person{
         this.dateOfBirth=dateOfBirth;
         this.dependentList=new LinkedList<>();
     }
+    public Date gtetDateofBirth(){
+        return dateOfBirth;
+    }
     public boolean hasDependents(){
         return !dependentList.isEmpty();
     }
@@ -19,8 +22,13 @@ public class Immigrant extends Person{
         }else{
             System.out.println("These are the dependents");
             for(Dependent i: dependentList){
-                System.out.println(i.get)
+                System.out.println(i.getFirstName());
+                System.out.println("\n");
+                System.out.println(i.getLastName());
             }
         }
+    }
+    public void addDependent(Dependent dependent){
+        dependentList.add(dependent);
     }
 }

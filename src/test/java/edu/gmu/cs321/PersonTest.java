@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PersonTest {
     @Test
     public void testPersonConstructor(){
-        Person testPerson = new Person("Bob");
+        Person testPerson = new Person("Bob","Bryant",656);
         //testPerson = null;
         boolean testConstructor = testPerson != null;
         assertTrue(testConstructor);
