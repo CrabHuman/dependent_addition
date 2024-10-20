@@ -1,0 +1,27 @@
+package edu.gmu.cs321;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+public class PersonTest {
+    @Test
+    public void PersonTester(){
+        Person p = new Person(null,null,0);
+        if(p.getFirstName==null){
+            return System.out.println("First Person Test Successful");
+        }
+        if(p.getLastName==null){
+            return System.out.println("First Person Test Successful");
+        }
+        if(p.getID==0){
+            return System.out.println("Test 3 is successful");
+        }
+        // assertEquals("Bob",testPerson.getFirstName());
+        // assertEquals("Bryant",testPerson.getLastName());
+        // assertEquals(656, testPerson.getID());
+        // //testPerson = null;.
+        // boolean testConstructor = testPerson != null;
+        // assertTrue(testConstructor);
+    }
+}
