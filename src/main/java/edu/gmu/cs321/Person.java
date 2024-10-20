@@ -6,7 +6,11 @@ public class Person
 	private String lastName;
 	private int personID;
 
-	
+	public Person(){
+		firstName = null;
+		lastName = null;
+		personID = -1;
+	}
 
 	public Person(String firstName, String lastName, int personID){
 		this.firstName=firstName;
@@ -21,6 +25,11 @@ public class Person
 	}
 	public int getID(){
 		return personID;
+	}
+
+	public String getFullName(){
+		return(firstName + " " + lastName);
+
 	}
 	
 }
