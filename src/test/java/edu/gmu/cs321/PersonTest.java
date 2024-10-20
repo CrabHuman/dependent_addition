@@ -7,19 +7,31 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
 public class PersonTest {
+    Person person;
+
+    @BeforeEach
+    void setUp(){
+        person = new Person("Bob", "Bryant", 656);
+    }
+    
     @Test
-    public void PersonTest(){
-        Person p = new Person(null,null,0);
-            assertNull(p.getFirstName());
-            assertNull(p.getLastName());
-            assertNotEquals(653,p.getID());
+    void ExampleTester(){
+        //person = new Person("Bob", "Bryant", 656);
+        assertEquals("Bob",person.getFirstName());
+        assertEquals("Bryant",person.getLastName());
+        assertEquals(656, person.getID());
+    }
+
+    @Test
+    void DefaultTester(){
+        person = new Person();
+        assertNull(person.getFirstName());
+        assertNull(person.getLastName());
+        assertEquals(-1,person.getID());
         
-        // assertEquals("Bob",testPerson.getFirstName());
-        // assertEquals("Bryant",testPerson.getLastName());
-        // assertEquals(656, testPerson.getID());
-        // //testPerson = null;.
-        // boolean testConstructor = testPerson != null;
-        // assertTrue(testConstructor);
     }
 }
+
