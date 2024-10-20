@@ -13,9 +13,7 @@ public class TestForImmigrant{
     public 
      void TestImmigrant(){
         Immigrant imm = new Immigrant(null, null, 0, null);
-        if(imm.hasDependents()==false){
-            assertEquals(true,true);
-        }
+        assertFalse(imm.hasDependents());
         // }else{
         //     assertEquals(tr,true);
         //     System.out.println("Test 1 Immigrant Test not successful");

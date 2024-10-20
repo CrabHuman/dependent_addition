@@ -8,18 +8,10 @@ public class PersonTest {
     @Test
     public void PersonTester(){
         Person p = new Person(null,null,0);
-        if(p.getFirstName==null){
-            assertEquals(true);
-            return System.out.println("First Person Test Successful");
-        }
-        if(p.getLastName==null){
-            assertEquals(true);
-            return System.out.println("First Person Test Successful");
-        }
-        if(p.getID==0){
-            assertEquals(true);
-            return System.out.println("Test 3 is successful");
-        }
+            assertFalse(p.getFirstName());
+            assertFalse(p.getLastName());
+            assertFalse(p.getID());
+        
         // assertEquals("Bob",testPerson.getFirstName());
         // assertEquals("Bryant",testPerson.getLastName());
         // assertEquals(656, testPerson.getID());
