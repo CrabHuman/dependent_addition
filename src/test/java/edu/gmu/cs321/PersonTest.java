@@ -7,9 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-public class TestForPerson {
+public class PersonTest {
     @Test
-    public void PersonTester(){
+    public void PersonTest(){
         Person p = new Person(null,null,0);
             assertNull(p.getFirstName());
             assertNull(p.getLastName());
