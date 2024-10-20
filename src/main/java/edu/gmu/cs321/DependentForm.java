@@ -1,30 +1,30 @@
 package edu.gmu.cs321;
 
-public class DependantForm 
+public class DependentForm 
 {
     private Immigrant parent;
-    //private Dependent dependent;
+    private Dependent dependent;
     private int formID;
 
-    public DependantForm()
+    public DependentForm()
     {
         this.formID = -1;
         this.parent = null;
-        //this.Dependent = null;
+        this.dependent = null;
     }
 
     public Immigrant getParent() 
     {
-        return this.parent;
+        return null; //this.parent;
     }
 
-    /**public Dependant getDependant()
+    public Dependent getDependent()
     {
-        return this.dependent;
-    }*/
+        return null; //this.dependent;
+    }
 
     public int getFormID()
     {
-        return this.formID;
+        return -1; //this.formID;
     }
 }
