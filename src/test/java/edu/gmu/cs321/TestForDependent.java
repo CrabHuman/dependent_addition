@@ -5,7 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-public class DependentTest{
+public class TestForDependent{
+    @Test
     void testDependent(){
         Dependent d = new Dependent(null, null,0,null,null);
             assertNull(d.getParent());

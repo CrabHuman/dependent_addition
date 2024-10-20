@@ -3,14 +3,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-public class PersonTest {
+public class TestForPerson {
     @Test
     public void PersonTester(){
         Person p = new Person(null,null,0);
-            assertFalse(p.getFirstName());
-            assertFalse(p.getLastName());
-            assertFalse(p.getID());
+            assertNull(p.getFirstName());
+            assertNull(p.getLastName());
+            assertNotEquals(653,p.getID());
         
         // assertEquals("Bob",testPerson.getFirstName());
         // assertEquals("Bryant",testPerson.getLastName());
