@@ -13,18 +13,37 @@ public class DependentForm
         this.dependent = null;
     }
 
+    public DependentForm(int formID, Immigrant parent, Dependent dependent){
+        this.formID = formID;
+        this.parent = parent;
+        this.dependent = dependent;
+    }
+
     public Immigrant getParent() 
     {
-        return null; //this.parent;
+        return this.parent;
     }
 
     public Dependent getDependent()
     {
-        return null; //this.dependent;
+        return this.dependent;
     }
 
     public int getFormID()
     {
-        return -1; //this.formID;
+        return this.formID;
     }
+
+    public void setParent(Immigrant parent){
+        this.parent = parent;
+    }
+
+    public void setDependent(Dependent dependent){
+        this.dependent = dependent;
+    }
+
+    public void setFormID(int formID){
+        this.formID = formID;
+    }
+
 }

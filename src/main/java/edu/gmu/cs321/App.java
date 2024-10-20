@@ -2,10 +2,8 @@ package edu.gmu.cs321;
 
 /**
  * Hello world!
- *
+ * Test 8:32
  */
-//Hello this is John speaking
-//Hello this is Jack speaking
 public class App 
 {
     public static void main( String[] args )
