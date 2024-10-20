@@ -8,9 +8,12 @@ public class DependentTest{
     void testDependent(){
         Dependent d = new Dependent(null, null,0,null,null);
         if (d.getParent==null){
+            assertEquals(null);
             System.out.println("The test for dependent was successul");
-        }else{
-            System.out.println("The test for dependent was NOT successful");
-        }
+        // }else
+        // {
+        //     !assertEquals(null);
+        //     System.out.println("The test for dependent was NOT successful");
+        // }
     }
 }
