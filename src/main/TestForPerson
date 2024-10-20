@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PersonTest {
     @Test
-    public void testPersonConstructor(){
-        Person p = new Person();
+    public void PersonTester(){
+        Person p = new Person(null,null,0);
         if(p.getFirstName==null){
             return System.out.println("First Person Test Successful");
         }

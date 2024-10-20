@@ -2,9 +2,9 @@ package edu.gmu.cs321;
 
 public class Person 
 {
-	private String firstName;
-	private String lastName;
-	private int personID;
+	// private String firstName;
+	// private String lastName;
+	// private int personID;
 	public Person(String firstName, String lastName, int personID){
 		// this.firstName=firstName;
 		// this.lastName=lastName;

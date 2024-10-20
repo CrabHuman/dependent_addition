@@ -10,7 +10,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestForImmigrant{
     @Test
-    public void testImmigrant(){
+    public  Object testImmigrant(){
+        Immigrant imm = new Immigrant(null, null, 0, null);
+        if(imm.hasDependents()==false){
+            return System.out.println("Test 1 Immigrant is successful");
+        }
+
         // Date dob = new Date();
         // Immigrant imm  = new Immigrant("Lonzo","Ball",02,dob);
         
