@@ -6,18 +6,21 @@ public class Person
 	private String lastName;
 	private int personID;
 	public Person(String firstName, String lastName, int personID){
-		this.firstName=firstName;
-		this.lastName=lastName;
-		this.personID=personID;
+		// this.firstName=firstName;
+		// this.lastName=lastName;
+		// this.personID=personID;
 	}
 	public String getFirstName(){
-		return firstName;
+		return null;
+		// return firstName;
 	}
 	public String getLastName(){
-		return lastName;
+		return null;
+		// return lastName;
 	}
 	public int getID(){
-		return personID;
+		return 0;
+		// return personID;
 	}
 	
 }

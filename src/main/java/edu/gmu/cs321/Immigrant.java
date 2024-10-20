@@ -10,7 +10,7 @@ public class Immigrant extends Person{
         this.dateOfBirth=dateOfBirth;
         this.dependentList=new LinkedList<>();
     }
-    public Date gtetDateofBirth(){
+    public Date gettDateofBirth(){
         return dateOfBirth;
     }
     public boolean hasDependents(){
