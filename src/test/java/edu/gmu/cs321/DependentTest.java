@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class DependentTest{
     @Test
     void testDependent(){
-        Dependent d = new Dependent(null, null,0,null,null);
+        Dependent d = new Dependent();
             assertNull(d.getParent());
             
         // }else

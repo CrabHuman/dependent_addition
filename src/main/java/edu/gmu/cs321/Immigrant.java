@@ -31,7 +31,7 @@ public class Immigrant extends Person{
         this.email = email;
     }
 
-    public Date getDateofBirth(){
+    public Date getDateOfBirth(){
         return dateOfBirth;
     }
     public String getAddress(){
@@ -42,6 +42,19 @@ public class Immigrant extends Person{
     }
     public String getEmail(){
         return email;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth){
+        this.dateOfBirth = dateOfBirth;
+    }
+    public void setAddress(String address){
+        this.address = address;
+    }
+    public void setPhoneNumber(long phoneNumber){
+        this.phoneNumber = phoneNumber;
+    }
+    public void setEmail(String email){
+        this.email = email;
     }
 
 }
