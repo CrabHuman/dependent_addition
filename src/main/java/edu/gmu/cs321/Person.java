@@ -1,22 +1,24 @@
 package edu.gmu.cs321;
-
+//Person class
 public class Person 
 {
+	//Private attributes
 	private String firstName;
 	private String lastName;
 	private int personID;
-
+	//Person no parameter constructor
 	public Person(){
 		firstName = null;
 		lastName = null;
 		personID = -1;
 	}
-
+	//Person constructor with parameters
 	public Person(String firstName, String lastName, int personID){
 		this.firstName=firstName;
 		this.lastName=lastName;
 		this.personID=personID;
 	}
+	//Getters
 	public String getFirstName(){
 		return firstName;
 	}
@@ -26,7 +28,7 @@ public class Person
 	public int getID(){
 		return personID;
 	}
-
+	//Setters
 	public void setFirstName(String firstName){
 		this.firstName = firstName;
 	}
