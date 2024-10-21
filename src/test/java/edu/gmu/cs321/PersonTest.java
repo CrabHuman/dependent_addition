@@ -8,30 +8,75 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeEach;
-public class PersonTest {
-    Person person;
+import org.junit.jupiter.api.BeforeAll;
+//import org.junit.jupiter.api.BeforeEach;
 
-    @BeforeEach
-    void setUp(){
+
+public class PersonTest {
+    static Person person;
+    static Person empty;
+    static Person fill;
+
+    @BeforeAll
+    static void setUp(){
         person = new Person("Bob", "Bryant", 656);
+        empty = new Person();
+        fill = new Person();
     }
     
     @Test
-    void ExampleTester(){
-        //person = new Person("Bob", "Bryant", 656);
+    void firstNameTester(){
         assertEquals("Bob",person.getFirstName());
+    }
+    @Test
+    void lastNameTester(){
         assertEquals("Bryant",person.getLastName());
+    }
+    @Test
+    void personIDTester(){
         assertEquals(656, person.getID());
+    }
+    @Test
+    void fullNameTester(){
+        assertEquals("Bob Bryant", person.getFullName());
     }
 
     @Test
-    void DefaultTester(){
-        person = new Person();
-        assertNull(person.getFirstName());
-        assertNull(person.getLastName());
-        assertEquals(-1,person.getID());
-        
+    void defaultFirstNameTester(){
+        assertNull(empty.getFirstName());
+    }
+    @Test
+    void defaultLastNameTester(){
+        assertNull(empty.getLastName());
+    }
+    @Test
+    void defaultPersonIDTester(){
+        assertEquals(-1,empty.getID());
+    }
+    @Test
+    void defaultFullNameTester(){
+        assertNull(empty.getFullName());
+    }
+
+
+    @Test
+    void setFirstNameTester(){
+        fill.setFirstName("Andy");
+        assertEquals("Andy",fill.getFirstName());
+    }
+    @Test
+    void setLastNameTester(){
+        fill.setLastName("Bandy");
+        assertEquals("Bandy",fill.getLastName());
+    }
+    @Test
+    void setPersonIDTester(){
+        fill.setPersonID(133);
+        assertEquals(133,fill.getID());
+    }
+    @Test
+    void setFullNameTester(){
+        assertEquals("Andy Bandy",fill.getFullName());
     }
 }
 

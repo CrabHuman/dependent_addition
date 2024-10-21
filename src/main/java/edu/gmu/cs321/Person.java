@@ -27,7 +27,21 @@ public class Person
 		return personID;
 	}
 
+	public void setFirstName(String firstName){
+		this.firstName = firstName;
+	}
+	public void setLastName(String lastName){
+		this.lastName = lastName;
+	}
+	public void setPersonID(int personID){
+		this.personID = personID;
+	}
+
+
 	public String getFullName(){
+		if(firstName == null || lastName == null){
+			return null;
+		}
 		return(firstName + " " + lastName);
 
 	}
