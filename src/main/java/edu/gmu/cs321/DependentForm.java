@@ -1,8 +1,8 @@
 package edu.gmu.cs321;
-
+//Dependent Form Class
 public class DependentForm 
 {
-    //object composition
+    //Class Attributes
     private Immigrant parent;
     private Dependent dependent;
     private int formID;
@@ -19,30 +19,26 @@ public class DependentForm
         this.dependent = dependent;
         this.formID = formID;
     }
-    //Parent getter
+    //Getters
     public Immigrant getParent() 
     {
         return this.parent;
     }
-    //Dependent Getter
     public Dependent getDependent()
     {
         return this.dependent;
     }
-    //ID Getter
     public int getID()
     {
         return this.formID;
     }
-    //Parent Setter
+    //Setters
     public void setParent(Immigrant parent){
         this.parent = parent;
     }
-    //Dependent Setter
     public void setDependent(Dependent dependent){
         this.dependent = dependent;
     }
-    //ID Setter
     public void setID(int formID){
         this.formID = formID;
     }

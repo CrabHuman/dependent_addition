@@ -1,6 +1,6 @@
 package edu.gmu.cs321;
 import java.util.Date;
-
+//Dependent Class
 public class Dependent extends Immigrant{
     //Class Attribute
     private Immigrant parent;
@@ -12,12 +12,12 @@ public class Dependent extends Immigrant{
     public Dependent(String firstName, String lastName, int personID, Date dateOfBirth, String address, long phoneNumber, String email) {
         super(firstName, lastName, personID, dateOfBirth, address, phoneNumber, email);
     }
-     //Second Consturctor that inherits fields for immigrant class with parent parameter
+     //Second Consturctor that inherits fields from immigrant class with parent parameter
     public Dependent(String firstName, String lastName, int personID, Date dateOfBirth, String address, long phoneNumber, String email, Immigrant parent) {
         super(firstName, lastName, personID, dateOfBirth, address, phoneNumber, email);
         this.parent=parent;
     }
-    //Parent getter
+    //Parent Getter
     public Immigrant getParent(){
         return parent;
     }
