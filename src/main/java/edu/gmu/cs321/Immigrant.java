@@ -1,12 +1,13 @@
 package edu.gmu.cs321;
 import java.util.Date;
-
+//Immigrant Class
 public class Immigrant extends Person{
+    //Immigrant class attributes
     private Date dateOfBirth;
     private String address;
     private long phoneNumber;
     private String email;
-
+    //Immigrant no parameter Constructor with super constructor inheriting from Person class
     public Immigrant(){
         super();
         dateOfBirth = null;
@@ -14,7 +15,7 @@ public class Immigrant extends Person{
         phoneNumber = -1;
         email = null;
     }
-
+    //Immigrant parameter constructor inheriting from Person class
     public Immigrant(String firstName, String lastName, int personID){
         super(firstName, lastName, personID);
         dateOfBirth = null;
@@ -22,7 +23,7 @@ public class Immigrant extends Person{
         phoneNumber = -1;
         email = null;
     }
-
+    //Third immigrant constructor, second with parameters that inherites from the Person class
     public Immigrant(String firstName, String lastName, int personID, Date dateOfBirth, String address, long phoneNumber, String email){
         super(firstName, lastName, personID);
         this.dateOfBirth = dateOfBirth;
@@ -30,7 +31,7 @@ public class Immigrant extends Person{
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
-
+    //Getters
     public Date getDateOfBirth(){
         return dateOfBirth;
     }
@@ -43,7 +44,7 @@ public class Immigrant extends Person{
     public String getEmail(){
         return email;
     }
-
+    //Setters
     public void setDateOfBirth(Date dateOfBirth){
         this.dateOfBirth = dateOfBirth;
     }
