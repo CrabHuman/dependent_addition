@@ -2,6 +2,7 @@ package edu.gmu.cs321;
 
 public class DependentForm 
 {
+    //object composition
     private Immigrant parent;
     private Dependent dependent;
     private int formID;
@@ -13,10 +14,10 @@ public class DependentForm
         this.dependent = null;
     }
 
-    public DependentForm(int formID, Immigrant parent, Dependent dependent){
-        this.formID = formID;
+    public DependentForm(Immigrant parent, Dependent dependent, int formID){
         this.parent = parent;
         this.dependent = dependent;
+        this.formID = formID;
     }
 
     public Immigrant getParent() 
@@ -29,7 +30,7 @@ public class DependentForm
         return this.dependent;
     }
 
-    public int getFormID()
+    public int getID()
     {
         return this.formID;
     }
@@ -42,7 +43,7 @@ public class DependentForm
         this.dependent = dependent;
     }
 
-    public void setFormID(int formID){
+    public void setID(int formID){
         this.formID = formID;
     }
 

@@ -8,6 +8,10 @@ public class Dependent extends Immigrant{
         super();
     }
 
+    public Dependent(String firstName, String lastName, int personID, Date dateOfBirth, String address, long phoneNumber, String email) {
+        super(firstName, lastName, personID, dateOfBirth, address, phoneNumber, email);
+    }
+
     public Dependent(String firstName, String lastName, int personID, Date dateOfBirth, String address, long phoneNumber, String email, Immigrant parent) {
         super(firstName, lastName, personID, dateOfBirth, address, phoneNumber, email);
         this.parent=parent;

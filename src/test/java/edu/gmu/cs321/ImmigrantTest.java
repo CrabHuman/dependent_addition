@@ -1,12 +1,10 @@
 package edu.gmu.cs321;
 import java.util.Date;
-import java.util.LinkedList;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -23,6 +21,12 @@ public class ImmigrantTest{
         fill = new Immigrant("Carl", "Bumps",882);
     }
     
+    @Test
+    void dependentInstanceTester(){
+        assertTrue(immigrant instanceof Immigrant);
+        assertTrue(immigrant instanceof Person);
+    }
+
     @Test
     void DoBTester(){
         assertEquals(new Date(1000000000L),immigrant.getDateOfBirth());
@@ -74,8 +78,8 @@ public class ImmigrantTest{
     }
     @Test
     void setEmailTester(){
-        fill.setEmail("dan@dan.com");
-        assertEquals("dan@dan.com",fill.getEmail());
+        fill.setEmail("cal@cal.com");
+        assertEquals("cal@cal.com",fill.getEmail());
     }
 
 }
