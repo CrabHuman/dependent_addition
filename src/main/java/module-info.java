@@ -1,5 +1,5 @@
 module edu.gmu.cs321 {
-    requires javafx.controls;
+    requires transitive javafx.controls;
     requires javafx.fxml;
 
     opens edu.gmu.cs321 to javafx.fxml;
