@@ -15,6 +15,7 @@ public class PrimaryController {
     }
     @FXML
     private void switchToApproval() throws IOException {
+        
         App.setRoot("approval");
     }
 }

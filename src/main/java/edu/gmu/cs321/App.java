@@ -17,6 +17,7 @@ public class App extends Application {
 
     private static Scene scene;
     private static Scene scene2;
+    private static Screen screen = new Screen();
 
     
     @Override
@@ -36,6 +37,10 @@ public class App extends Application {
     
 
     static void setRoot(String fxml) throws IOException {
+        if(fxml.equals("approval")){
+            screen = new ApprovalScreen();
+            screen.initialize();
+        }
         scene.setRoot(loadFXML(fxml));
     }
     //creation method for data entry
