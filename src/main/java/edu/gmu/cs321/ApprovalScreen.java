@@ -41,7 +41,16 @@ public class ApprovalScreen extends Screen {
     private TextField fxDependentParentID;
 
     @FXML
-    public void initialize(){
+    private TextField fxApproveParentID;
+    @FXML
+    private TextField fxApproveDependentID;
+    @FXML
+    private TextField fxDenyParentID;
+    @FXML
+    private TextField fxDenyDependentID;
+
+    @FXML
+    private void initialize(){
         form = new DependentForm(new Immigrant("Bob", "Bryant", 655, 
         new Date(1000000000L), "Courtlane Dr", 1112223333L, "bb@b.com"),
         new Dependent("Peach", "Jam", 585, new Date(800000L),
@@ -50,6 +59,13 @@ public class ApprovalScreen extends Screen {
         );
         form.getDependent().setParent(form.getParent());
 
+        enterFields();
+        
+
+    }
+    
+    @FXML
+    private void enterFields(){
         fxParentFirstName.setText(form.getParent().getFirstName());
         fxParentLastName.setText(form.getParent().getLastName());
         fxParentID.setText(String.valueOf(form.getParent().getID()));
@@ -66,27 +82,11 @@ public class ApprovalScreen extends Screen {
         fxDependentPhoneNumber.setText(String.valueOf(form.getDependent().getPhoneNumber()));
         fxDependentEmail.setText(form.getDependent().getEmail());
         fxDependentParentID.setText(String.valueOf(form.getDependent().getParent().getID()));
-        
-
-    }
-    
-
-    @FXML
-    private void saveForm() throws IOException {
-        // save the form to the database
-    }
-    
-    @FXML
-    private void submitForm() throws IOException {
-        // save form to database
-        saveForm();
-        // send form into workflow table
-        // unload this form from the ReviewScreen
     }
 
     // renamed back to testButtonMethod from backToPrimary for basic functionality before I figure out how it works.
     @FXML
-    private void testButtonMethod() throws IOException {
+    private void returnToPrimaryController() throws IOException {
         // save form to database
         //saveForm();
         // go back to previous page
@@ -94,17 +94,38 @@ public class ApprovalScreen extends Screen {
     }
 
     @FXML
-    private void pauseForm() throws IOException {
-        // save form to database (maybe mark as a draft or something)
-        saveForm(/*DependentForm.draft=true*/);
-        // keep form loaded
+    private void approveForm(){
+        fxApproveParentID.setText("");
+        fxApproveDependentID.setText("");
+        fxDenyParentID.setText("");
+        fxDenyDependentID.setText("");
+
+        form = new DependentForm(new Immigrant("Bob", "Bryant", 655, 
+        new Date(1000000000L), "Courtlane Dr", 1112223333L, "bb@b.com"),
+        new Dependent("Carl", "Bumps",882,new Date(2000L),
+        "Terraceloop Rd",9998887777L,"cal@cal.com"),
+        868
+        );
+        form.getDependent().setParent(form.getParent());
+
+        enterFields();
     }
 
     @FXML
-    private void loadNextForm() throws IOException {
-        // save form to database
-        saveForm();
-        // unload this form
-        // retrieve new form from the database
+    private void denyForm(){
+        fxApproveParentID.setText("");
+        fxApproveDependentID.setText("");
+        fxDenyParentID.setText("");
+        fxDenyDependentID.setText("");
+
+        form = new DependentForm(new Immigrant("Carl", "Bumps",882,new Date(2000L),
+        "Terraceloop Rd",9998887777L,"cal@cal.com"),
+        new Dependent("Bob", "Bryant", 655, 
+        new Date(1000000000L), "Courtlane Dr", 1112223333L, "bb@b.com"),
+        111
+        );
+        form.getDependent().setParent(form.getParent());
+
+        enterFields();
     }
 }

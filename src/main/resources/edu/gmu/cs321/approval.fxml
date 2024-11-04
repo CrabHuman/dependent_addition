@@ -9,11 +9,11 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gmu.cs321.ApprovalScreen">
    <children>  <!-- This VBox for separating top buttons from rest of prog -->
-      <HBox prefHeight="30.0" prefWidth="200.0">
+      <HBox prefHeight="30.0" prefWidth="600.0" alignment="CENTER">
          <children>  <!-- This HBox for holding Review label from buttons -->
-            <Label prefHeight="17.0" prefWidth="380.0" text="Approval" />
+            <Label prefHeight="17.0" prefWidth="300.0" text="Approval" />
             
-            <Button mnemonicParsing="false" text="Back" onAction = "#testButtonMethod"/>
+            <Button mnemonicParsing="false" text="Back" onAction = "#returnToPrimaryController"/>
             
          </children>
       </HBox>
@@ -123,26 +123,26 @@
       </HBox>
       <HBox prefHeight="30.0" prefWidth="600.0" alignment="CENTER">
          <children>
-            <VBox>
+            <VBox prefHeight="60.0" prefWidth="200.0">
                <children>
-                  <TextField promptText="ParentID" />
-                  <TextField promptText="DependentID" />
+                  <TextField promptText="ParentID" fx:id="fxApproveParentID"/>
+                  <TextField promptText="DependentID" fx:id="fxApproveDependentID"/>
                </children>
             </VBox>
-            <VBox>
+            <VBox prefHeight="30.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" text="Approve Form"/>
+                  <Button mnemonicParsing="false" text="Approve Form" onAction = "#approveForm"/>
                </children>
             </VBox>
-            <VBox>
+            <VBox prefHeight="60.0" prefWidth="200.0">
                <children>
-                  <TextField promptText="ParentID" />
-                  <TextField promptText="DependentID" />
+                  <TextField promptText="ParentID" fx:id="fxDenyParentID"/>
+                  <TextField promptText="DependentID" fx:id="fxDenyDependentID"/>
                </children>
             </VBox>
-            <VBox>
+            <VBox prefHeight="30.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" text="Deny Form"/>
+                  <Button mnemonicParsing="false" text="Deny Form" onAction = "#denyForm"/>
                </children>
             </VBox>
          </children>
