@@ -17,7 +17,7 @@
             
          </children>
       </HBox>
-      <HBox prefHeight="297.0" prefWidth="600.0">
+      <HBox prefHeight="297.0" prefWidth="600.0" alignment = "CENTER">
          <children>  <!-- This HBox for separating immigrant data, dependent data, and the lookups -->
             <VBox prefHeight="225.0" prefWidth="300.0">
                <children>  <!-- This VBox for storing immigrant data -->
@@ -25,43 +25,43 @@
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for First Name label and TextField -->
                         <Label prefHeight="17.0" prefWidth="125.0" text="First Name:" />
-                        <TextField fx:id="fxParentFirstName" />
+                        <TextField fx:id="fxParentFirstName" editable="false"/>
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for Last Name label and TextField -->
                         <Label prefHeight="17.0" prefWidth="125.0" text="Last Name:" />
-                        <TextField fx:id="fxParentLastName"/>
+                        <TextField fx:id="fxParentLastName" editable="false"/>
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for PersonID label and TextField -->
                         <Label prefHeight="17.0" prefWidth="125.0" text="Person ID:" />
-                        <TextField fx:id="fxParentID" />
+                        <TextField fx:id="fxParentID" editable="false"/>
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for Date of Birth label and TextField -->
                         <Label prefHeight="17.0" prefWidth="125.0" text="Date Of Birth:" />
-                        <TextField fx:id="fxParentDateOfBirth"/>
+                        <TextField fx:id="fxParentDateOfBirth" editable="false"/>
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for Address label and TextField -->
                         <Label prefHeight="17.0" prefWidth="125.0" text="Address:" />
-                        <TextField fx:id="fxParentAddress" />
+                        <TextField fx:id="fxParentAddress" editable="false"/>
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="200.0">
                      <children>  <!-- This HBox for Phone Number label and TextField -->
                         <Label prefHeight="17.0" prefWidth="125.0" text="Phone Number:" />
-                        <TextField fx:id="fxParentPhoneNumber"/>
+                        <TextField fx:id="fxParentPhoneNumber" editable="false"/>
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="200.0">
                      <children>  <!-- This HBOX for Email label and TextField -->
                         <Label prefHeight="17.0" prefWidth="125.0" text="Email:" />
-                        <TextField fx:id="fxParentEmail"/>
+                        <TextField fx:id="fxParentEmail" editable="false"/>
                      </children>
                   </HBox>
                </children>
@@ -72,77 +72,77 @@
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for First Name label and TextField -->
                         <Label prefHeight="17.0" prefWidth="125.0" text="First Name:" />
-                        <TextField fx:id="fxDependentFirstName" />
+                        <TextField fx:id="fxDependentFirstName" editable="false" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for Last Name label and TextField -->
                         <Label prefWidth="125.0" text="Last Name:" />
-                        <TextField fx:id="fxDependentLastName" />
+                        <TextField fx:id="fxDependentLastName" editable="false" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for PersonID label and TextField -->
                         <Label prefWidth="125.0" text="Person ID:" />
-                        <TextField fx:id="fxDependentID" />
+                        <TextField fx:id="fxDependentID" editable="false" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for Date of Birth label and TextField -->
                         <Label prefWidth="125.0" text="Date Of Birth:" />
-                        <TextField fx:id="fxDependentDateOfBirth" />
+                        <TextField fx:id="fxDependentDateOfBirth" editable="false" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for Address label and TextField -->
                         <Label prefWidth="125.0" text="Address:" />
-                        <TextField fx:id="fxDependentAddress" />
+                        <TextField fx:id="fxDependentAddress" editable="false" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="200.0">
                      <children>  <!-- This HBox for Phone Number label and TextField -->
                         <Label prefWidth="125.0" text="Phone Number:" />
-                        <TextField fx:id="fxDependentPhoneNumber" />
+                        <TextField fx:id="fxDependentPhoneNumber" editable="false" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="200.0">
                      <children>  <!-- This HBox for Email label and TextField -->
                         <Label prefWidth="125.0" text="Email:" />
-                        <TextField fx:id="fxDependentEmail" />
+                        <TextField fx:id="fxDependentEmail" editable="false" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="200.0">
                      <children>  <!-- This HBox for Parent's PID label and TextField -->
                         <Label prefWidth="125.0" text="Parent's PID:" />
-                        <TextField fx:id="fxDependentParentID" />
+                        <TextField fx:id="fxDependentParentID" editable="false" />
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="275.0" prefWidth="300.0">
-               <children>  <!-- This VBox for lookup tables -->
-               <HBox prefHeight="55.0" prefWidth="245.0">
-                  <children>  <!-- This HBox for Immigrant lookup label and PID TextField -->
-                     <Label text="Immigrant's Lookup:" />
-                     <TextField promptText="Immigrant PID" />
-                  </children>
-               </HBox>
-               <VBox prefHeight="200.0" prefWidth="100.0">
-                  <children>  <!-- This VBox for storing search results -->
-                     <Label text="Immigrant Search Results Go Here" />
-                  </children>
-               </VBox>
-               <HBox prefHeight="100.0" prefWidth="200.0">
-                  <children>  <!-- This HBox for Dependent Lookup Label and PID TextField -->
-                     <Label text="Dependent Lookup:" />
-                     <TextField promptText="Dependent PID:" />
-                  </children>
-               </HBox>
-               <VBox prefHeight="200.0" prefWidth="100.0">
-                  <children>  <!-- This VBox for storing search results -->
-                     <Label text="Dependent Search Results Go Here" />
-                  </children>
-               </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="30.0" prefWidth="600.0" alignment="CENTER">
+         <children>
+            <VBox>
+               <children>
+                  <TextField promptText="ParentID" />
+                  <TextField promptText="DependentID" />
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Button mnemonicParsing="false" text="Approve Form"/>
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <TextField promptText="ParentID" />
+                  <TextField promptText="DependentID" />
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Button mnemonicParsing="false" text="Deny Form"/>
                </children>
             </VBox>
          </children>

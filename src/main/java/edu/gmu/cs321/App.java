@@ -27,12 +27,13 @@ public class App extends Application {
         stage.show();
         
         //Seperate Screen For Data Entry
+        /*
         scene2=new Scene(creation(),300,300);
         Stage destage=new Stage();
         destage.setTitle("Data Entry");
         destage.setScene(scene2);
         destage.show();
-        
+        */
     }
     
 
