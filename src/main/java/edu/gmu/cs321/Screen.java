@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 
 public class Screen {
     private int screenID;
-    private DependentForm form;
+    protected DependentForm form;
 
     public Screen(){
         screenID = -1;
@@ -24,6 +24,10 @@ public class Screen {
     }
     public void setDependentForm(DependentForm form){
         this.form = form;
+    }
+
+    private void initialize(){
+      
     }
 
 }
