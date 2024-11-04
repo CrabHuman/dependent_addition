@@ -39,9 +39,9 @@ public class App extends Application {
     static void setRoot(String fxml) throws IOException {
         if(fxml.equals("approval")){
             screen = new ApprovalScreen();
-            screen.initialize();
         }
         scene.setRoot(loadFXML(fxml));
+        //screen.initialize();
     }
     //creation method for data entry
     private static Parent creation(){

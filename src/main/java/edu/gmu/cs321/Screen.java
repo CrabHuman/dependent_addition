@@ -27,7 +27,7 @@ public class Screen {
     }
 
     public void initialize(){
-      // TODO document why this method is empty
+      
     }
 
 }

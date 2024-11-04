@@ -1,24 +1,82 @@
 package edu.gmu.cs321;
 
 import java.io.IOException;
+import java.util.Date;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class ApprovalScreen extends Screen {
 
     @FXML
-    private TextField fxAddress;
+    private TextField fxParentFirstName;
+    @FXML
+    private TextField fxParentLastName;
+    @FXML
+    private TextField fxParentID;
+    @FXML
+    private TextField fxParentDateOfBirth;
+    @FXML
+    private TextField fxParentAddress;
+    @FXML
+    private TextField fxParentPhoneNumber;
+    @FXML
+    private TextField fxParentEmail;
 
+    @FXML
     public void initialize(){
-        form.getParent().setAddress("wow");
-        fxAddress.setText("foo");
-        System.out.println("bar");
+        form = new DependentForm(new Immigrant("Bob", "Bryant", 655, 
+        new Date(1000000000L), "Courtlane Dr", 1112223333L, "bb@b.com"),
+        new Dependent("Peach", "Jam", 585, new Date(800000L),
+        "Courtlane Dr",1112223333L,"bb@b.com", null),
+        994
+        );
+        form.getDependent().setParent(form.getParent());
+        fxParentFirstName.setText(form.getParent().getFirstName());
+        fxParentLastName.setText(form.getParent().getLastName());
+        fxParentID.setText(String.valueOf(form.getParent().getID()));
+        fxParentDateOfBirth.setText(form.getParent().getDateOfBirth().toString());
+        fxParentAddress.setText(form.getParent().getFirstName());
+        fxParentPhoneNumber.setText(String.valueOf(form.getParent().getPhoneNumber()));
+        fxParentEmail.setText(form.getParent().getEmail());
+        //System.out.println("bar");
     }
     
 
     @FXML
+    private void saveForm() throws IOException {
+        // save the form to the database
+    }
+    
+    @FXML
+    private void submitForm() throws IOException {
+        // save form to database
+        saveForm();
+        // send form into workflow table
+        // unload this form from the ReviewScreen
+    }
+
+    // renamed back to testButtonMethod from backToPrimary for basic functionality before I figure out how it works.
+    @FXML
     private void testButtonMethod() throws IOException {
-        
+        // save form to database
+        //saveForm();
+        // go back to previous page
         App.setRoot("primary");
+    }
+
+    @FXML
+    private void pauseForm() throws IOException {
+        // save form to database (maybe mark as a draft or something)
+        saveForm(/*DependentForm.draft=true*/);
+        // keep form loaded
+    }
+
+    @FXML
+    private void loadNextForm() throws IOException {
+        // save form to database
+        saveForm();
+        // unload this form
+        // retrieve new form from the database
     }
 }
