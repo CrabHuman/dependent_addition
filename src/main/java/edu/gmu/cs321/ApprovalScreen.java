@@ -50,7 +50,7 @@ public class ApprovalScreen extends Screen {
     private TextField fxDenyDependentID;
 
     @FXML
-    private void initialize(){
+    public void initialize(){
         form = new DependentForm(new Immigrant("Bob", "Bryant", 655, 
         new Date(1000000000L), "Courtlane Dr", 1112223333L, "bb@b.com"),
         new Dependent("Peach", "Jam", 585, new Date(800000L),

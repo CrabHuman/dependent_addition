@@ -26,7 +26,7 @@ public class Screen {
         this.form = form;
     }
 
-    private void initialize(){
+    public void initialize(){
       
     }
 
