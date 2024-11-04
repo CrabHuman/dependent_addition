@@ -24,6 +24,23 @@ public class ApprovalScreen extends Screen {
     private TextField fxParentEmail;
 
     @FXML
+    private TextField fxDependentFirstName;
+    @FXML
+    private TextField fxDependentLastName;
+    @FXML
+    private TextField fxDependentID;
+    @FXML
+    private TextField fxDependentDateOfBirth;
+    @FXML
+    private TextField fxDependentAddress;
+    @FXML
+    private TextField fxDependentPhoneNumber;
+    @FXML
+    private TextField fxDependentEmail;
+    @FXML
+    private TextField fxDependentParentID;
+
+    @FXML
     public void initialize(){
         form = new DependentForm(new Immigrant("Bob", "Bryant", 655, 
         new Date(1000000000L), "Courtlane Dr", 1112223333L, "bb@b.com"),
@@ -32,6 +49,7 @@ public class ApprovalScreen extends Screen {
         994
         );
         form.getDependent().setParent(form.getParent());
+
         fxParentFirstName.setText(form.getParent().getFirstName());
         fxParentLastName.setText(form.getParent().getLastName());
         fxParentID.setText(String.valueOf(form.getParent().getID()));
@@ -39,7 +57,17 @@ public class ApprovalScreen extends Screen {
         fxParentAddress.setText(form.getParent().getFirstName());
         fxParentPhoneNumber.setText(String.valueOf(form.getParent().getPhoneNumber()));
         fxParentEmail.setText(form.getParent().getEmail());
-        //System.out.println("bar");
+
+        fxDependentFirstName.setText(form.getDependent().getFirstName());
+        fxDependentLastName.setText(form.getDependent().getLastName());
+        fxDependentID.setText(String.valueOf(form.getDependent().getID()));
+        fxDependentDateOfBirth.setText(form.getDependent().getDateOfBirth().toString());
+        fxDependentAddress.setText(form.getDependent().getFirstName());
+        fxDependentPhoneNumber.setText(String.valueOf(form.getDependent().getPhoneNumber()));
+        fxDependentEmail.setText(form.getDependent().getEmail());
+        fxDependentParentID.setText(String.valueOf(form.getDependent().getParent().getID()));
+        
+
     }
     
 

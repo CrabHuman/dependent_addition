@@ -22,7 +22,7 @@ public class App extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("primary"), 900, 480);
         stage.setScene(scene);
         stage.show();
         
@@ -37,11 +37,21 @@ public class App extends Application {
     
 
     static void setRoot(String fxml) throws IOException {
-        if(fxml.equals("approval")){
+        switch(fxml){
+            case "approval" :
             screen = new ApprovalScreen();
+            break;
+            case "review":
+            screen = new ReviewScreen();
+            break;
+            case "dataEntry":
+            screen = new DataEntryScreen();
+            break;
+            default:
+            screen = new Screen();
         }
         scene.setRoot(loadFXML(fxml));
-        //screen.initialize();
+        
     }
     //creation method for data entry
     private static Parent creation(){

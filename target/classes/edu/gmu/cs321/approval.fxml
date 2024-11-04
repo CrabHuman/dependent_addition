@@ -12,11 +12,9 @@
       <HBox prefHeight="30.0" prefWidth="200.0">
          <children>  <!-- This HBox for holding Review label from buttons -->
             <Label prefHeight="17.0" prefWidth="380.0" text="Approval" />
-            <Button mnemonicParsing="false" text="Save" onAction = "#saveForm"/>
-            <Button mnemonicParsing="false" text="Submit" />
+            
             <Button mnemonicParsing="false" text="Back" onAction = "#testButtonMethod"/>
-            <Button mnemonicParsing="false" text="Pause" />
-            <Button mnemonicParsing="false" text="Load Next" />
+            
          </children>
       </HBox>
       <HBox prefHeight="297.0" prefWidth="600.0">
@@ -74,49 +72,49 @@
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for First Name label and TextField -->
                         <Label prefHeight="17.0" prefWidth="125.0" text="First Name:" />
-                        <TextField promptText="First Name" />
+                        <TextField fx:id="fxDependentFirstName" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for Last Name label and TextField -->
                         <Label prefWidth="125.0" text="Last Name:" />
-                        <TextField promptText="Last Name" />
+                        <TextField fx:id="fxDependentLastName" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for PersonID label and TextField -->
                         <Label prefWidth="125.0" text="Person ID:" />
-                        <TextField promptText="Person ID" />
+                        <TextField fx:id="fxDependentID" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for Date of Birth label and TextField -->
                         <Label prefWidth="125.0" text="Date Of Birth:" />
-                        <TextField promptText="mm/dd/year" />
+                        <TextField fx:id="fxDependentDateOfBirth" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="600.0">
                      <children>  <!-- This HBox for Address label and TextField -->
                         <Label prefWidth="125.0" text="Address:" />
-                        <TextField promptText="Address" />
+                        <TextField fx:id="fxDependentAddress" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="200.0">
                      <children>  <!-- This HBox for Phone Number label and TextField -->
                         <Label prefWidth="125.0" text="Phone Number:" />
-                        <TextField promptText="(XXX)XXX-XXX" />
+                        <TextField fx:id="fxDependentPhoneNumber" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="200.0">
                      <children>  <!-- This HBox for Email label and TextField -->
                         <Label prefWidth="125.0" text="Email:" />
-                        <TextField promptText="email@email.com" />
+                        <TextField fx:id="fxDependentEmail" />
                      </children>
                   </HBox>
                   <HBox prefHeight="30.0" prefWidth="200.0">
                      <children>  <!-- This HBox for Parent's PID label and TextField -->
                         <Label prefWidth="125.0" text="Parent's PID:" />
-                        <TextField promptText="Parent's Person ID" />
+                        <TextField fx:id="fxDependentParentID" />
                      </children>
                   </HBox>
                </children>
