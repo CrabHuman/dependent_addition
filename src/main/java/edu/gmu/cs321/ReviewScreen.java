@@ -60,7 +60,7 @@ public class ReviewScreen extends Screen {
         // save form to database
         saveForm();
         // go back to previous page
-                // Debug Statement: App.setRoot("primary");
+        App.setRoot("primary");
     }
 
     @FXML
