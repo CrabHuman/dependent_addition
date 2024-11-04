@@ -41,6 +41,7 @@ public class ApprovalScreen extends Screen {
     private TextField fxDependentParentID;
 
     @FXML
+<<<<<<< Updated upstream
     private TextField fxApproveParentID;
     @FXML
     private TextField fxApproveDependentID;
@@ -50,6 +51,8 @@ public class ApprovalScreen extends Screen {
     private TextField fxDenyDependentID;
 
     @FXML
+=======
+>>>>>>> Stashed changes
     private void initialize(){
         form = new DependentForm(new Immigrant("Bob", "Bryant", 655, 
         new Date(1000000000L), "Courtlane Dr", 1112223333L, "bb@b.com"),
@@ -95,6 +98,7 @@ public class ApprovalScreen extends Screen {
 
     @FXML
     private void approveForm(){
+<<<<<<< Updated upstream
         fxApproveParentID.setText("");
         fxApproveDependentID.setText("");
         fxDenyParentID.setText("");
@@ -109,10 +113,14 @@ public class ApprovalScreen extends Screen {
         form.getDependent().setParent(form.getParent());
 
         enterFields();
+=======
+
+>>>>>>> Stashed changes
     }
 
     @FXML
     private void denyForm(){
+<<<<<<< Updated upstream
         fxApproveParentID.setText("");
         fxApproveDependentID.setText("");
         fxDenyParentID.setText("");
@@ -127,5 +135,8 @@ public class ApprovalScreen extends Screen {
         form.getDependent().setParent(form.getParent());
 
         enterFields();
+=======
+        
+>>>>>>> Stashed changes
     }
 }
