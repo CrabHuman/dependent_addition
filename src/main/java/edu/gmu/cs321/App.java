@@ -29,7 +29,7 @@ public class App extends Application {
 
     static final String CREAT_IMM = "CREATE TABLE Immigrant(immigrantID int not null, firstName varchar(255), lastName varchar(255), dateOfBirth long not null, address varchar(255), phoneNumber long not null, email varchar(255));";
     static final String CREAT_FRM = "CREATE TABLE DependentForm(parentID int not null, dependentID int not null);";
-    private static Workflow workflow;
+    public static Workflow workflow;
     private static Scene scene;
     private static Scene scene2;
     private static Screen screen = new Screen();
@@ -102,7 +102,7 @@ public class App extends Application {
             }
             stmt.executeUpdate(CREAT_IMM);
             stmt.executeUpdate(CREAT_FRM);
-
+            workflow = new Workflow();
             launch();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
