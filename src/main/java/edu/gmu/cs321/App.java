@@ -23,8 +23,12 @@ public class App extends Application {
     static final String DB_URL = "jdbc:mysql://localhost:3306/cs321";
     static final String USER = "guest";
     static final String PASS = "Password1";
-    static final String QUERY = "SELECT age FROM People";;
+    static final String QUERY = "SELECT age FROM People WHERE id = 100";
+    static final String DEL_IMM = "DROP TABLE Immigrant";
+    static final String DEL_FRM = "DROP TABLE DependentForm";
 
+    static final String CREAT_IMM = "CREATE TABLE Immigrant(immigrantID int not null, firstName varchar(255), lastName varchar(255), dateOfBirth long not null, address varchar(255), phoneNumber long not null, email varchar(255));";
+    static final String CREAT_FRM = "CREATE TABLE DependentForm(parentID int not null, dependentID int not null);";
     private static Workflow workflow;
     private static Scene scene;
     private static Scene scene2;
@@ -75,19 +79,37 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        Connection conn;
+        Statement stmt;
+        ResultSet rs;
         try {
-            Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(QUERY);
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(QUERY);
             while(rs.next()){
-                System.out.println("ID: "+rs.getInt("age"));
+                System.out.println("AGE: "+rs.getInt("age"));
             }
+            
+            try {
+                stmt.executeUpdate(DEL_IMM);
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                stmt.executeUpdate(DEL_FRM);
+            } catch (SQLException e2) {
+                e2.printStackTrace();
+            }
+            stmt.executeUpdate(CREAT_IMM);
+            stmt.executeUpdate(CREAT_FRM);
+
+            launch();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
         
-        launch();
+        
     }
 
 }
