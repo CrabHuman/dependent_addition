@@ -49,7 +49,8 @@ public class ReviewScreen extends Screen {
     @FXML
     private void submitForm() throws IOException {
         // save form to database
-        saveForm();
+        //saveForm();
+        App.workflow.AddWFItem(form.getID(), "Approve");
         // send form into workflow table
         // unload this form from the ReviewScreen
                 // Debug Statement: System.out.println("Form submitted c:");
