@@ -42,12 +42,10 @@ public class Screen {
         try {
             conn = DriverManager.getConnection(App.DB_URL, App.USER, App.PASS);
             stmt = conn.createStatement();
-            rs = stmt.executeQuery(App.QUERY);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        
     }
 
 }

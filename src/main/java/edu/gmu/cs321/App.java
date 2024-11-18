@@ -27,7 +27,13 @@ public class App extends Application {
     //static final String DEL_IMM = "DROP TABLE Immigrant";
     static final String DEL_FRM = "DROP TABLE DependentForm";
     
-    static final String CREAT_FRM = "CREATE TABLE DependentForm(formID int not null, immigrantID int not null, firstName varchar(255), lastName varchar(255), dateOfBirth long not null, address varchar(255), phoneNumber long not null, email varchar(255),dependentID int not null, DPfirstName varchar(255), DPlastName varchar(255), DPdateOfBirth long not null, DPaddress varchar(255), DPphoneNumber long not null, DPemail varchar(255));";
+    static final String CREAT_FRM = """
+    CREATE TABLE DependentForm(formID int not null, immigrantID int not null, 
+    firstName varchar(255), lastName varchar(255), dateOfBirth long not null, address varchar(255), 
+    phoneNumber long not null, email varchar(255),dependentID int not null, DPfirstName varchar(255), 
+    DPlastName varchar(255), DPdateOfBirth long not null, DPaddress varchar(255), DPphoneNumber long not null, 
+    DPemail varchar(255));
+    """;
     //static final String CREAT_FRM = "CREATE TABLE DependentForm(parentID int not null, dependentID int not null);";
     
     //static final String JOIN_PARENT = "DROP TABLE Immigrant";
@@ -114,7 +120,7 @@ public class App extends Application {
             );
             form.getDependent().setParent(form.getParent());
 
-            workflow.AddWFItem(form.getID(), "Review");
+            workflow.AddWFItem(form.getID(), "Approve");
 
             launch();
         } catch (SQLException e) {

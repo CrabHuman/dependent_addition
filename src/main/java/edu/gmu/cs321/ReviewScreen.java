@@ -75,7 +75,7 @@ public class ReviewScreen extends Screen {
     @FXML
     private void loadNextForm() throws IOException {
         // save form to database
-        saveForm();
+        //saveForm();
         // unload this form
         // retrieve new form from the database
         
@@ -105,6 +105,8 @@ public class ReviewScreen extends Screen {
         fxDependentEmail.setText(form.getDependent().getEmail());
         fxDependentParentID.setText(String.valueOf(form.getDependent().getParent().getID()));
                 // Debug Statement: System.out.println("Next form loaded c:");
+
+        form.setID(App.workflow.GetNextWFItem("Review"));
     }
 
     @FXML

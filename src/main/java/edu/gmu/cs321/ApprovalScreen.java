@@ -1,13 +1,17 @@
 package edu.gmu.cs321;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Date;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class ApprovalScreen extends Screen {
-
+    private static String QUERY = """
+    SELECT formID, immigrantID, firstName, lastName, dateOfBirth, address, phoneNumber, email, dependentID, 
+    DPfirstName, DPlastName, DPdateOfBirth, DPaddress, DPphoneNumber, DPemail FROM DependentForm WHERE formID = 
+    """;
     @FXML
     private TextField fxParentFirstName;
     @FXML
@@ -49,16 +53,59 @@ public class ApprovalScreen extends Screen {
     @FXML
     private TextField fxDenyDependentID;
 
-    @FXML
-    public void initialize(){
-        
-        //enterFields();
-    }
-
+    
     public void getNext(){
+        if(form != null){
+            System.out.println("FULL");
+            return;
+        }
         int nextID = App.workflow.GetNextWFItem("Approve");
+        
         if(nextID >= 0){
             
+            try {
+                rs = stmt.executeQuery(QUERY + nextID);
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }else{
+            System.out.println("OOPS");
+            return;
+        }
+
+        fillForm();
+        enterFields();
+        return;
+    }
+
+    void fillForm(){
+        try {
+            form = new DependentForm(new Immigrant(), new Dependent(), -1);
+            form.setID(rs.getInt("formID"));
+            //dateOfBirth, address, phoneNumber, email, dependentID, 
+            //DPfirstName, DPlastName, DPdateOfBirth, DPaddress, DPphoneNumber, DPemail
+            form.getParent().setPersonID(rs.getInt("immigrantID"));
+            form.getParent().setFirstName(rs.getString("firstname"));
+            form.getParent().setLastName(rs.getString("lastname"));
+            form.getParent().setDateOfBirth(new Date(rs.getLong("dateOfBirth")));
+            form.getParent().setAddress(rs.getString("address"));
+            form.getParent().setPhoneNumber(rs.getLong("phoneNumber"));
+            form.getParent().setEmail(rs.getString("email"));
+
+            form.getDependent().setParent(form.getParent());
+            form.getDependent().setPersonID(rs.getInt("dependentID"));
+            form.getDependent().setFirstName(rs.getString("DPfirstname"));
+            form.getDependent().setLastName(rs.getString("DPlastname"));
+            form.getDependent().setDateOfBirth(new Date(rs.getLong("DPdateOfBirth")));
+            form.getDependent().setAddress(rs.getString("DPaddress"));
+            form.getDependent().setPhoneNumber(rs.getLong("DPphoneNumber"));
+            form.getDependent().setEmail(rs.getString("DPemail"));
+
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
 
     }
