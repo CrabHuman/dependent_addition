@@ -3,129 +3,180 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.control.Button?>
 
-<VBox spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.gmu.cs321.DataEntryScreen">
-   <children>
-      <HBox alignment="TOP_RIGHT" spacing="10.0">
-         <children>
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="edu.gmu.cs321.DataEntryScreen"
+      prefHeight="600.0" prefWidth="900.0">
+   
+    <!-- Top HBox for Back Button -->
+    <HBox alignment="TOP_RIGHT" spacing="10.0">
+        <children>
             <Button text="Back" onAction="#handleBackButtonAction" style="-fx-font-size: 12px;" />
-         </children>
-      </HBox>
-      <StackPane alignment="CENTER">
-         <children>
-            <Label text="Enter Your Immigration Data" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
-         </children>
-      </StackPane>
-      <HBox spacing="20.0" alignment="TOP_LEFT">
-         <children>
-            <VBox alignment="TOP_LEFT" spacing="5.0">
-               <children>
-                  <Label text="Immigrant Data" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="First Name:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="Last Name:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="Person ID:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="Date of Birth:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="Address:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="Phone Number:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="Email:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-               </children>
+        </children>
+    </HBox>
+    
+    <!-- Header Label -->
+    <StackPane alignment="CENTER">
+        <children>
+            <Label text="Enter Your Immigration Data"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+        </children>
+    </StackPane>
+    
+    <!-- Main HBox for Immigrant and Dependent Data -->
+    <HBox spacing="20.0" alignment="TOP_LEFT">
+        <children>
+            <!-- Immigrant Data VBox -->
+            <VBox alignment="TOP_LEFT" spacing="5.0" prefWidth="400.0">
+                <children>
+                    <Label text="Immigrant Data" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+                    
+                    <!-- First Name -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="First Name:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxParentFirstName" prefWidth="250.0" />
+                        </children>
+                    </HBox>
+                    
+                    <!-- Last Name -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="Last Name:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxParentLastName" prefWidth="250.0" />
+                        </children>
+                    </HBox>
+                    
+                    <!-- Person ID -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="Person ID:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxParentID" prefWidth="250.0" />
+                        </children>
+                    </HBox>
+                    
+                    <!-- Date of Birth -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="Date of Birth:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxParentDateOfBirth" prefWidth="250.0" promptText="MM/dd/yyyy"/>
+                        </children>
+                    </HBox>
+                    
+                    <!-- Address -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="Address:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxParentAddress" prefWidth="250.0" />
+                        </children>
+                    </HBox>
+                    
+                    <!-- Phone Number -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="Phone Number:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxParentPhoneNumber" prefWidth="250.0" />
+                        </children>
+                    </HBox>
+                    
+                    <!-- Email -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="Email:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxParentEmail" prefWidth="250.0" />
+                        </children>
+                    </HBox>
+                </children>
             </VBox>
-            <VBox alignment="TOP_LEFT" spacing="5.0">
-               <children>
-                  <Label text="Dependent Data" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="First Name:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="Last Name:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="Person ID:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="Date of Birth:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="Address:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="Phone Number:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="Email:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-                  <HBox spacing="3.0">
-                     <children>
-                        <Label text="Parent PID:" style="-fx-font-size: 10px;" />
-                        <TextField prefWidth="100.0" />
-                     </children>
-                  </HBox>
-               </children>
+            
+            <!-- Dependent Data VBox -->
+            <VBox alignment="TOP_LEFT" spacing="5.0" prefWidth="400.0">
+                <children>
+                    <Label text="Dependent Data" style="-fx-font-weight: bold; -fx-font-size: 12px;" />
+                    
+                    <!-- First Name -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="First Name:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxDependentFirstName" prefWidth="250.0" />
+                        </children>
+                    </HBox>
+                    
+                    <!-- Last Name -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="Last Name:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxDependentLastName" prefWidth="250.0" />
+                        </children>
+                    </HBox>
+                    
+                    <!-- Person ID -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="Person ID:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxDependentID" prefWidth="250.0" />
+                        </children>
+                    </HBox>
+                    
+                    <!-- Date of Birth -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="Date of Birth:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxDependentDateOfBirth" prefWidth="250.0" promptText="MM/dd/yyyy"/>
+                        </children>
+                    </HBox>
+                    
+                    <!-- Address -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="Address:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxDependentAddress" prefWidth="250.0" />
+                        </children>
+                    </HBox>
+                    
+                    <!-- Phone Number -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="Phone Number:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxDependentPhoneNumber" prefWidth="250.0" />
+                        </children>
+                    </HBox>
+                    
+                    <!-- Email -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="Email:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxDependentEmail" prefWidth="250.0" />
+                        </children>
+                    </HBox>
+                    
+                    <!-- Parent PID -->
+                    <HBox spacing="3.0">
+                        <children>
+                            <Label text="Parent PID:" style="-fx-font-size: 10px;" prefWidth="125.0" />
+                            <TextField fx:id="fxDependentParentID" prefWidth="250.0" />
+                        </children>
+                    </HBox>
+                </children>
             </VBox>
-         </children>
-      </HBox>
-   </children>
-   <padding>
-      <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-   </padding>
+        </children>
+    </HBox>
+    
+    <!-- Bottom HBox for Buttons -->
+    <HBox alignment="CENTER" spacing="10.0">
+        <children>
+            <Button text="Submit" onAction="#submitFormData" style="-fx-font-size: 12px;" />
+            <Button text="Clear" onAction="#clearForm" style="-fx-font-size: 12px;" /> <!-- Added Clear Button -->
+        </children>
+    </HBox>
+    
+    <!-- Padding -->
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
 </VBox>
