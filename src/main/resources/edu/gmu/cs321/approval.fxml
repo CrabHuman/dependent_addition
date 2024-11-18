@@ -14,7 +14,7 @@
             <Label prefHeight="17.0" prefWidth="300.0" text="Approval" />
             
             <Button mnemonicParsing="false" text="Back" onAction = "#returnToPrimaryController"/>
-            
+            <Button mnemonicParsing="false" text="Next Form" onAction = "#getNext"/>
          </children>
       </HBox>
       <HBox prefHeight="297.0" prefWidth="600.0" alignment = "CENTER">

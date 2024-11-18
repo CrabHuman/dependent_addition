@@ -1,5 +1,10 @@
 package edu.gmu.cs321;
 
+import java.sql.*;
+
+
+import com.cs321.Workflow;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,9 +20,29 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/cs321";
+    public static final String USER = "guest";
+    public static final String PASS = "Password1";
+    static final String QUERY = "SELECT age FROM People WHERE id = 100";
+    //static final String DEL_IMM = "DROP TABLE Immigrant";
+    static final String DEL_FRM = "DROP TABLE DependentForm";
+    
+    static final String CREAT_FRM = """
+    CREATE TABLE DependentForm(formID int not null, immigrantID int not null, 
+    firstName varchar(255), lastName varchar(255), dateOfBirth long not null, address varchar(255), 
+    phoneNumber long not null, email varchar(255),dependentID int not null, DPfirstName varchar(255), 
+    DPlastName varchar(255), DPdateOfBirth long not null, DPaddress varchar(255), DPphoneNumber long not null, 
+    DPemail varchar(255));
+    """;
+    //static final String CREAT_FRM = "CREATE TABLE DependentForm(parentID int not null, dependentID int not null);";
+    
+    //static final String JOIN_PARENT = "DROP TABLE Immigrant";
+    //static final String JOIN_DEPENDENT = "DROP TABLE Immigrant";
+    
+    public static Workflow workflow;
     private static Scene scene;
     private static Scene scene2;
-    private static Screen screen = new Screen();
+    private static Screen screen;
 
     
     @Override
@@ -64,7 +89,46 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        Connection conn;
+        Statement stmt;
+        ResultSet rs;
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            stmt = conn.createStatement();
+            //rs = stmt.executeQuery(QUERY);
+           
+            
+            /*try {
+                stmt.executeUpdate(DEL_IMM);
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }*/
+            try {
+                stmt.executeUpdate(DEL_FRM);
+            } catch (SQLException e2) {
+                e2.printStackTrace();
+            }
+            //stmt.executeUpdate(CREAT_IMM);
+            stmt.executeUpdate(CREAT_FRM);
+            workflow = new Workflow();
+
+            DependentForm form = new DependentForm(new Immigrant("Bob", "Bryant", 655, 
+            new Date(1000000000L), "Courtlane Dr", 1112223333L, "bb@b.com"),
+            new Dependent("Peach", "Jam", 585, new Date(800000L),
+            "Courtlane Dr",1112223333L,"bb@b.com", null),
+            994
+            );
+            form.getDependent().setParent(form.getParent());
+
+            workflow.AddWFItem(form.getID(), "Approve");
+
+            launch();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        
     }
 
 }

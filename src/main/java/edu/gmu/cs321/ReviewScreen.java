@@ -49,7 +49,8 @@ public class ReviewScreen extends Screen {
     @FXML
     private void submitForm() throws IOException {
         // save form to database
-        saveForm();
+        //saveForm();
+        App.workflow.AddWFItem(form.getID(), "Approve");
         // send form into workflow table
         // unload this form from the ReviewScreen
                 // Debug Statement: System.out.println("Form submitted c:");
@@ -58,7 +59,7 @@ public class ReviewScreen extends Screen {
     @FXML
     private void backToPrimary() throws IOException {
         // save form to database
-        saveForm();
+        //saveForm();
         // go back to previous page
         App.setRoot("primary");
     }
@@ -74,7 +75,7 @@ public class ReviewScreen extends Screen {
     @FXML
     private void loadNextForm() throws IOException {
         // save form to database
-        saveForm();
+        //saveForm();
         // unload this form
         // retrieve new form from the database
         
@@ -104,6 +105,8 @@ public class ReviewScreen extends Screen {
         fxDependentEmail.setText(form.getDependent().getEmail());
         fxDependentParentID.setText(String.valueOf(form.getDependent().getParent().getID()));
                 // Debug Statement: System.out.println("Next form loaded c:");
+
+        form.setID(App.workflow.GetNextWFItem("Review"));
     }
 
     @FXML

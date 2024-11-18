@@ -1,11 +1,23 @@
 package edu.gmu.cs321;
 
+import java.sql.*;
+import com.cs321.Workflow;
 import java.io.IOException;
 import javafx.fxml.FXML;
 
+
+
 public class Screen {
+
+    
+
     private int screenID;
     protected DependentForm form;
+
+
+    protected Connection conn;
+    protected Statement stmt;
+    protected ResultSet rs;
 
     public Screen(){
         screenID = -1;
@@ -26,8 +38,18 @@ public class Screen {
         this.form = form;
     }
 
-    private void initialize(){
-      
+    public void initialize(){
+        try {
+            conn = DriverManager.getConnection(App.DB_URL, App.USER, App.PASS);
+            stmt = conn.createStatement();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    protected void clearScreen(){
+        
     }
 
 }
