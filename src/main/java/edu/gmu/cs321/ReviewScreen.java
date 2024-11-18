@@ -58,7 +58,7 @@ public class ReviewScreen extends Screen {
     @FXML
     private void backToPrimary() throws IOException {
         // save form to database
-        saveForm();
+        //saveForm();
         // go back to previous page
         App.setRoot("primary");
     }

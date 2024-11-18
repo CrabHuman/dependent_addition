@@ -10,6 +10,6 @@ public class DataEntryScreen extends Screen {
     }
     @FXML
     private void handleBackButtonAction(ActionEvent event) throws IOException {
-        App.setRoot("main");  
+        App.setRoot("primary");  
     }
 }

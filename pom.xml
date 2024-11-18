@@ -46,7 +46,7 @@
             <artifactId>Workflow</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/resources/workflow.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/java/resources/workflow.jar</systemPath>
         </dependency>
     </dependencies>
     <build>
