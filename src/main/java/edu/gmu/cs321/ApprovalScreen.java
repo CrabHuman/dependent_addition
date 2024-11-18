@@ -140,42 +140,45 @@ public class ApprovalScreen extends Screen {
     }
 
     @FXML
-    private void approveForm(){
+    protected void clearScreen(){
+        fxParentFirstName.setText("");
+        fxParentLastName.setText("");
+        fxParentID.setText("");
+        fxParentDateOfBirth.setText("");
+        fxParentAddress.setText("");
+        fxParentPhoneNumber.setText("");
+        fxParentEmail.setText("");
+
+        fxDependentFirstName.setText("");
+        fxDependentLastName.setText("");
+        fxDependentID.setText("");
+        fxDependentDateOfBirth.setText("");
+        fxDependentAddress.setText("");
+        fxDependentPhoneNumber.setText("");
+        fxDependentEmail.setText("");
+        fxDependentParentID.setText("");
 
         fxApproveParentID.setText("");
         fxApproveDependentID.setText("");
         fxDenyParentID.setText("");
         fxDenyDependentID.setText("");
+    }
 
-        form = new DependentForm(new Immigrant("Bob", "Bryant", 655, 
-        new Date(1000000000L), "Courtlane Dr", 1112223333L, "bb@b.com"),
-        new Dependent("Carl", "Bumps",882,new Date(2000L),
-        "Terraceloop Rd",9998887777L,"cal@cal.com"),
-        868
-        );
-        form.getDependent().setParent(form.getParent());
-
-        enterFields();
+    @FXML
+    private void approveForm(){
+        clearScreen();
+        emailApproval();
 
     }
 
     @FXML
     private void denyForm(){
+        clearScreen();
+        App.workflow.AddWFItem(form.getID(), "Review");
+    }
 
-        fxApproveParentID.setText("");
-        fxApproveDependentID.setText("");
-        fxDenyParentID.setText("");
-        fxDenyDependentID.setText("");
 
-        form = new DependentForm(new Immigrant("Carl", "Bumps",882,new Date(2000L),
-        "Terraceloop Rd",9998887777L,"cal@cal.com"),
-        new Dependent("Bob", "Bryant", 655, 
-        new Date(1000000000L), "Courtlane Dr", 1112223333L, "bb@b.com"),
-        111
-        );
-        form.getDependent().setParent(form.getParent());
-
-        enterFields();
-
+    private void emailApproval(){
+        System.out.println(form.getParent().getEmail());
     }
 }

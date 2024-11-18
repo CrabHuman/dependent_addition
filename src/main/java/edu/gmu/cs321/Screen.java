@@ -48,4 +48,8 @@ public class Screen {
         }
     }
 
+    protected void clearScreen(){
+        
+    }
+
 }
