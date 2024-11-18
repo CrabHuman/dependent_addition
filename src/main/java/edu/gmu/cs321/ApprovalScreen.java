@@ -51,16 +51,15 @@ public class ApprovalScreen extends Screen {
 
     @FXML
     public void initialize(){
-        form = new DependentForm(new Immigrant("Bob", "Bryant", 655, 
-        new Date(1000000000L), "Courtlane Dr", 1112223333L, "bb@b.com"),
-        new Dependent("Peach", "Jam", 585, new Date(800000L),
-        "Courtlane Dr",1112223333L,"bb@b.com", null),
-        994
-        );
-        form.getDependent().setParent(form.getParent());
-
-        enterFields();
         
+        //enterFields();
+    }
+
+    public void getNext(){
+        int nextID = App.workflow.GetNextWFItem("Approve");
+        if(nextID >= 0){
+            
+        }
 
     }
     

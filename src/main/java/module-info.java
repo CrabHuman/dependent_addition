@@ -1,7 +1,7 @@
 module edu.gmu.cs321 {
     requires transitive javafx.controls;
     requires javafx.fxml;
-    requires java.sql;
+    requires transitive java.sql;
     requires workflow;
     
 
