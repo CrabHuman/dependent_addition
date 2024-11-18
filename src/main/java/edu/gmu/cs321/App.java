@@ -2,6 +2,7 @@ package edu.gmu.cs321;
 
 import java.sql.*;
 
+
 import com.cs321.Workflow;
 
 import javafx.application.Application;
@@ -18,7 +19,13 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-    
+
+    static final String DB_URL = "jdbc:mysql://localhost:3306/cs321";
+    static final String USER = "guest";
+    static final String PASS = "Password1";
+    static final String QUERY = "SELECT age FROM People";;
+
+    private static Workflow workflow;
     private static Scene scene;
     private static Scene scene2;
     private static Screen screen = new Screen();
@@ -68,6 +75,18 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(QUERY);
+            while(rs.next()){
+                System.out.println("ID: "+rs.getInt("age"));
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
         launch();
     }
 
