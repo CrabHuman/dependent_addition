@@ -1,7 +1,9 @@
 package edu.gmu.cs321;
 
-//import com.cs321.Workflow;
 import java.sql.*;
+
+import com.cs321.Workflow;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +18,7 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-
+    
     private static Scene scene;
     private static Scene scene2;
     private static Screen screen = new Screen();
