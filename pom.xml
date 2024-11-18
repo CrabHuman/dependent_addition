@@ -41,6 +41,13 @@
             <artifactId>mysql-connector-j</artifactId>
             <version>9.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.cs321</groupId>
+            <artifactId>Workflow</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/workflow.jar</systemPath>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
