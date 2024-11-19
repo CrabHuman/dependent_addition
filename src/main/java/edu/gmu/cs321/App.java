@@ -120,7 +120,23 @@ public class App extends Application {
             );
             form.getDependent().setParent(form.getParent());
 
-            workflow.AddWFItem(form.getID(), "Approve");
+            
+            try {
+                stmt.execute("INSERT INTO DependentForm VALUES("+ form.getID() + ", " + form.getParent().getID()  + 
+                ", '" + form.getParent().getFirstName() + "','" + form.getParent().getLastName() + 
+                "', " + form.getParent().getDateOfBirth().getTime() + ", '" + form.getParent().getAddress() + 
+                "', " + form.getParent().getPhoneNumber() + ", '" + form.getParent().getEmail() + "', " 
+                + form.getDependent().getID()  + 
+                ", '" + form.getDependent().getFirstName() + "','" + form.getDependent().getLastName() + 
+                "', " + form.getDependent().getDateOfBirth().getTime() + ", '" + form.getDependent().getAddress() + 
+                "', " + form.getDependent().getPhoneNumber() + ", '" + form.getDependent().getEmail() + "');" );
+    
+                App.workflow.AddWFItem(form.getID(), "Approve");
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+                
 
             launch();
         } catch (SQLException e) {

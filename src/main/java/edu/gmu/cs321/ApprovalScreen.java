@@ -1,17 +1,14 @@
 package edu.gmu.cs321;
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Date;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class ApprovalScreen extends Screen {
-    private static String QUERY = """
-    SELECT formID, immigrantID, firstName, lastName, dateOfBirth, address, phoneNumber, email, dependentID, 
-    DPfirstName, DPlastName, DPdateOfBirth, DPaddress, DPphoneNumber, DPemail FROM DependentForm WHERE formID = 
-    """;
+    private static final String QUERY = "SELECT * FROM DependentForm WHERE formID = ";
     @FXML
     private TextField fxParentFirstName;
     @FXML
@@ -64,7 +61,15 @@ public class ApprovalScreen extends Screen {
         if(nextID >= 0){
             
             try {
+                conn = DriverManager.getConnection(App.DB_URL, App.USER, App.PASS);
+                stmt = conn.createStatement();
                 rs = stmt.executeQuery(QUERY + nextID);
+                rs.next();
+                //rs = stmt.executeQuery("SELECT formID WHERE ");
+                //System.out.println("WOW" + rs.getInt("formID"));
+                form = new DependentForm(new Immigrant(), new Dependent(), -1);
+                fillForm();
+                enterFields();
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -73,15 +78,13 @@ public class ApprovalScreen extends Screen {
             System.out.println("OOPS");
             return;
         }
-
-        fillForm();
-        enterFields();
+        
         return;
     }
 
     void fillForm(){
         try {
-            form = new DependentForm(new Immigrant(), new Dependent(), -1);
+            
             form.setID(rs.getInt("formID"));
             //dateOfBirth, address, phoneNumber, email, dependentID, 
             //DPfirstName, DPlastName, DPdateOfBirth, DPaddress, DPphoneNumber, DPemail
@@ -178,6 +181,7 @@ public class ApprovalScreen extends Screen {
     }
 
 
+    
     private void emailApproval(){
         System.out.println(form.getParent().getEmail());
     }
