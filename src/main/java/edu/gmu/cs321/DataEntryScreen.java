@@ -1,5 +1,7 @@
 package edu.gmu.cs321;
 import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 // import java.sql.Connection;
 // import java.sql.DriverManager;
 // import java.sql.PreparedStatement;
@@ -13,7 +15,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 public class DataEntryScreen extends Screen{
-    private DependentForm dependentForm;
+    static int idNo = 0;
+    //private DependentForm dependentForm;
     @FXML
     private TextField fxParentFirstName;
     @FXML
@@ -46,7 +49,7 @@ public class DataEntryScreen extends Screen{
     @FXML
     private TextField fxDependentParentID;
 
-    private List<DependentForm> formStorage = new ArrayList<>();
+    //private List<DependentForm> formStorage = new ArrayList<>();
 
 
     /**
@@ -54,7 +57,7 @@ public class DataEntryScreen extends Screen{
      */
     @FXML
     private void handleBackButtonAction(ActionEvent event) throws IOException {
-        App.setRoot("main");  
+        App.setRoot("primary");  
     }
     /**
      * Handles the action when the "Submit" button is pressed.
@@ -63,10 +66,12 @@ public class DataEntryScreen extends Screen{
     private void submitFormData(ActionEvent event) {
         try {
             // Validate input fields
+            /*
             if (isAnyFieldEmpty()) {
                 showError("Validation Error", "Please fill out all fields.");
                 return;
             }
+                */
             // Creating Immigrant (Parent) object
         Immigrant parent = new Immigrant();
         parent.setFirstName(fxParentFirstName.getText());
@@ -93,8 +98,9 @@ public class DataEntryScreen extends Screen{
         // Store the DependentForm instance
         int formID = generateFormID();
 
-        dependentForm = new DependentForm(parent, dependent, formID);
-        formStorage.add(dependentForm);
+        form = new DependentForm(parent, dependent, formID);
+        //formStorage.add(dependentForm);
+        storeForm();
         showConfirmation("Data Submitted", "Your information has been successfully saved.");
         clearForm();
 
@@ -185,6 +191,28 @@ private void clearForm() {
     private int generateFormID() {
         // Simple form ID generation based on the current size of formStorage
         // In a real application, this should be handled by the backend/database
-        return formStorage.size() + 1;
+        //return formStorage.size() + 1;
+        return idNo += 1;
+    }
+
+    void storeForm(){
+
+        try {
+            conn = DriverManager.getConnection(App.DB_URL, App.USER, App.PASS);
+                stmt = conn.createStatement();
+                stmt.execute("INSERT INTO DependentForm VALUES("+ form.getID() + ", " + form.getParent().getID()  + 
+                ", '" + form.getParent().getFirstName() + "','" + form.getParent().getLastName() + 
+                "', " + form.getParent().getDateOfBirth().getTime() + ", '" + form.getParent().getAddress() + 
+                "', " + form.getParent().getPhoneNumber() + ", '" + form.getParent().getEmail() + "', " 
+                + form.getDependent().getID()  + 
+                ", '" + form.getDependent().getFirstName() + "','" + form.getDependent().getLastName() + 
+                "', " + form.getDependent().getDateOfBirth().getTime() + ", '" + form.getDependent().getAddress() + 
+                "', " + form.getDependent().getPhoneNumber() + ", '" + form.getDependent().getEmail() + "');" );
+    
+                App.workflow.AddWFItem(form.getID(), "Review");
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
     }
 }

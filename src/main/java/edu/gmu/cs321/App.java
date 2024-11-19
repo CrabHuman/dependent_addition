@@ -122,6 +122,7 @@ public class App extends Application {
 
             
             try {
+                
                 stmt.execute("INSERT INTO DependentForm VALUES("+ form.getID() + ", " + form.getParent().getID()  + 
                 ", '" + form.getParent().getFirstName() + "','" + form.getParent().getLastName() + 
                 "', " + form.getParent().getDateOfBirth().getTime() + ", '" + form.getParent().getAddress() + 
