@@ -75,7 +75,7 @@ public class ReviewScreen extends Screen {
         // unload this form
         unloadForm();
         // retrieve new form from the database
-        int nextID = App.workflow.GetNextWFItem("Approve");
+        int nextID = App.workflow.GetNextWFItem("Review");
         
         if(nextID >= 0){
             
