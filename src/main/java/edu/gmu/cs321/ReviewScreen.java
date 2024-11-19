@@ -41,6 +41,7 @@ public class ReviewScreen extends Screen {
 
     @FXML
     private void validate() throws IOException {
+        /*
         Immigrant parent = super.form.getParent();
         Dependent dep = super.form.getDependent();
         parent.setFirstName(fxParentFirstName);
@@ -64,6 +65,7 @@ public class ReviewScreen extends Screen {
         dep.setEmail(fxDependentEmail);
         if (parent.getID() == Integer.parseInt(fxDependentParentID))
             dep.setParent(parent);
+            */
     }
     
     @FXML
