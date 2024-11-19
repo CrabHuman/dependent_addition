@@ -41,7 +41,29 @@ public class ReviewScreen extends Screen {
 
     @FXML
     private void validate() throws IOException {
-        
+        Immigrant parent = super.form.getParent();
+        Dependent dep = super.form.getDependent();
+        parent.setFirstName(fxParentFirstName);
+        parent.setLastName(fxParentLastName);
+        parent.setPersonID(fxParentID);
+        String[] mdy = fxParentDateOfBirth.split("/");
+        int[] mdyNums = {Integer.parseInt(mdy[0]), Integer.parseInt(mdy[1]), Integer.parseInt(mdy[2])};
+        parent.setDateOfBirth(new Date(mdyNums[2], mdyNums[0], mdyNums[1]);
+        parent.setAddress(fxParentAddress);
+        parent.setPhoneNumber(Long.parseLong(fxParentPhoneNumber));
+        parent.setEmail(fxParentEmail);
+
+        dep.setFirstName(fxDependentFirstName);
+        dep.setLastName(fxDependentLastName);
+        dep.setPersonID(fxDependentID);
+        mdy = fxDependentDateOfBirth.split("/");
+        mdyNums = {Integer.parseInt(mdy[0]), Integer.parseInt(mdy[1]), Integer.parseInt(mdy[2])};
+        dep.setDateOfBirth(new Date(mdyNums[2], mdyNums[0], mdyNums[1]);
+        dep.setAddress(fxDependentAddress);
+        dep.setPhoneNumber(Long.parseLong(fxDependentPhoneNumber));
+        dep.setEmail(fxDependentEmail);
+        if (parent.getID() == Integer.parseInt(fxDependentParentID))
+            dep.setParent(parent);
     }
     
     @FXML
