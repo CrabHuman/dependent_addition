@@ -5,9 +5,15 @@ import java.util.Date;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import java.sql.SQLException;
 
 public class ReviewScreen extends Screen {
 
+    private static String QUERY = """
+    SELECT formID, immigrantID, firstName, lastName, dateOfBirth, address, phoneNumber, email, dependentID, 
+    DPfirstName, DPlastName, DPdateOfBirth, DPaddress, DPphoneNumber, DPemail FROM DependentForm WHERE formID = 
+    """;
+    
     @FXML
     private TextField fxParentFirstName;
     @FXML
@@ -43,70 +49,67 @@ public class ReviewScreen extends Screen {
     @FXML
     private void saveForm() throws IOException {
         // save the form to the database
-                // Debug Statement: System.out.println("Form saved c:");
+        
     }
     
     @FXML
     private void submitForm() throws IOException {
-        // save form to database
-        //saveForm();
+        saveForm();
         App.workflow.AddWFItem(form.getID(), "Approve");
-        // send form into workflow table
-        // unload this form from the ReviewScreen
-                // Debug Statement: System.out.println("Form submitted c:");
+        unloadForm();
     }
 
     @FXML
     private void backToPrimary() throws IOException {
         // save form to database
-        //saveForm();
+        saveForm();
         // go back to previous page
         App.setRoot("primary");
     }
 
     @FXML
-    private void pauseForm() throws IOException {
-        // save form to database (maybe mark as a draft or something)
-        saveForm(/*DependentForm.draft=true*/);
-        // keep form loaded
-                // Debug Statement: System.out.println("Form paused c:");
+    private void validate() throws IOException {
+        
     }
-
+    
     @FXML
     private void loadNextForm() throws IOException {
         // save form to database
-        //saveForm();
+        saveForm();
         // unload this form
+        unloadForm();
         // retrieve new form from the database
+        int nextID = App.workflow.GetNextWFItem("Approve");
         
-        //Note: following is for initialization of testing data only. Credit goes to Ben for this.
-        form = new DependentForm(new Immigrant("Bob", "Bryant", 655, 
-        new Date(1000000000L), "Courtlane Dr", 1112223333L, "bb@b.com"),
-        new Dependent("Peach", "Jam", 585, new Date(800000L),
-        "Courtlane Dr",1112223333L,"bb@b.com", null),
-        994
-        );
-        form.getDependent().setParent(form.getParent());
+        if(nextID >= 0){
+            
+            try {
+                rs = stmt.executeQuery(QUERY + nextID);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }else{
+            System.out.println("OOPS");
+            return;
+        }
+        //super.form = null;
+        
+        fxParentFirstName.setText(super.form.getParent().getFirstName());
+        fxParentLastName.setText(super.form.getParent().getLastName());
+        fxParentID.setText(String.valueOf(super.form.getParent().getID()));
+        fxParentDateOfBirth.setText(super.form.getParent().getDateOfBirth().toString());
+        fxParentAddress.setText(super.form.getParent().getFirstName());
+        fxParentPhoneNumber.setText(String.valueOf(super.form.getParent().getPhoneNumber()));
+        fxParentEmail.setText(super.form.getParent().getEmail());
 
-        fxParentFirstName.setText(form.getParent().getFirstName());
-        fxParentLastName.setText(form.getParent().getLastName());
-        fxParentID.setText(String.valueOf(form.getParent().getID()));
-        fxParentDateOfBirth.setText(form.getParent().getDateOfBirth().toString());
-        fxParentAddress.setText(form.getParent().getFirstName());
-        fxParentPhoneNumber.setText(String.valueOf(form.getParent().getPhoneNumber()));
-        fxParentEmail.setText(form.getParent().getEmail());
-
-        fxDependentFirstName.setText(form.getDependent().getFirstName());
-        fxDependentLastName.setText(form.getDependent().getLastName());
-        fxDependentID.setText(String.valueOf(form.getDependent().getID()));
-        fxDependentDateOfBirth.setText(form.getDependent().getDateOfBirth().toString());
-        fxDependentAddress.setText(form.getDependent().getFirstName());
-        fxDependentPhoneNumber.setText(String.valueOf(form.getDependent().getPhoneNumber()));
-        fxDependentEmail.setText(form.getDependent().getEmail());
-        fxDependentParentID.setText(String.valueOf(form.getDependent().getParent().getID()));
-                // Debug Statement: System.out.println("Next form loaded c:");
-
-        form.setID(App.workflow.GetNextWFItem("Review"));
+        fxDependentFirstName.setText(super.form.getDependent().getFirstName());
+        fxDependentLastName.setText(super.form.getDependent().getLastName());
+        fxDependentID.setText(String.valueOf(super.form.getDependent().getID()));
+        fxDependentDateOfBirth.setText(super.form.getDependent().getDateOfBirth().toString());
+        fxDependentAddress.setText(super.form.getDependent().getFirstName());
+        fxDependentPhoneNumber.setText(String.valueOf(super.form.getDependent().getPhoneNumber()));
+        fxDependentEmail.setText(super.form.getDependent().getEmail());
+        fxDependentParentID.setText(String.valueOf(super.form.getDependent().getParent().getID()));        
     }
 
     @FXML
@@ -127,5 +130,6 @@ public class ReviewScreen extends Screen {
         fxDependentPhoneNumber.setText("");
         fxDependentEmail.setText("");
         fxDependentParentID.setText("");
+        super.form = NULL;
     }
 }
