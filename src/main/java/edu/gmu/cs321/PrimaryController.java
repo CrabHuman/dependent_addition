@@ -3,6 +3,7 @@ package edu.gmu.cs321;
 import java.io.IOException;
 import javafx.fxml.FXML;
 
+// primary controller class built in for swapping between the classes
 public class PrimaryController {
 
     @FXML

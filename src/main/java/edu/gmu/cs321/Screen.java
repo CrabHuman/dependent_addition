@@ -17,41 +17,42 @@ public class Screen {
     protected DependentForm form;
 
     @FXML
-    private TextField fxParentFirstName;
+    protected TextField fxParentFirstName;
     @FXML
-    private TextField fxParentLastName;
+    protected TextField fxParentLastName;
     @FXML
-    private TextField fxParentID;
+    protected TextField fxParentID;
     @FXML
-    private TextField fxParentDateOfBirth;
+    protected TextField fxParentDateOfBirth;
     @FXML
-    private TextField fxParentAddress;
+    protected TextField fxParentAddress;
     @FXML
-    private TextField fxParentPhoneNumber;
+    protected TextField fxParentPhoneNumber;
     @FXML
-    private TextField fxParentEmail;
+    protected TextField fxParentEmail;
 
     @FXML
-    private TextField fxDependentFirstName;
+    protected TextField fxDependentFirstName;
     @FXML
-    private TextField fxDependentLastName;
+    protected TextField fxDependentLastName;
     @FXML
-    private TextField fxDependentID;
+    protected TextField fxDependentID;
     @FXML
-    private TextField fxDependentDateOfBirth;
+    protected TextField fxDependentDateOfBirth;
     @FXML
-    private TextField fxDependentAddress;
+    protected TextField fxDependentAddress;
     @FXML
-    private TextField fxDependentPhoneNumber;
+    protected TextField fxDependentPhoneNumber;
     @FXML
-    private TextField fxDependentEmail;
+    protected TextField fxDependentEmail;
     @FXML
-    private TextField fxDependentParentID;
+    protected TextField fxDependentParentID;
 
     protected Connection conn;
     protected Statement stmt;
     protected ResultSet rs;
 
+    // screen constructor
     public Screen(){
         screenID = -1;
         form = null;

@@ -8,39 +8,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class ApprovalScreen extends Screen {
+    // query for gathering the form info from the database
     private static final String QUERY = "SELECT * FROM DependentForm WHERE formID = ";
-    @FXML
-    private TextField fxParentFirstName;
-    @FXML
-    private TextField fxParentLastName;
-    @FXML
-    private TextField fxParentID;
-    @FXML
-    private TextField fxParentDateOfBirth;
-    @FXML
-    private TextField fxParentAddress;
-    @FXML
-    private TextField fxParentPhoneNumber;
-    @FXML
-    private TextField fxParentEmail;
+    
 
-    @FXML
-    private TextField fxDependentFirstName;
-    @FXML
-    private TextField fxDependentLastName;
-    @FXML
-    private TextField fxDependentID;
-    @FXML
-    private TextField fxDependentDateOfBirth;
-    @FXML
-    private TextField fxDependentAddress;
-    @FXML
-    private TextField fxDependentPhoneNumber;
-    @FXML
-    private TextField fxDependentEmail;
-    @FXML
-    private TextField fxDependentParentID;
-
+    // optional fx fields for the confirmation of the form
     @FXML
     private TextField fxApproveParentID;
     @FXML
@@ -50,7 +22,7 @@ public class ApprovalScreen extends Screen {
     @FXML
     private TextField fxDenyDependentID;
 
-    
+    // gets the next form in the work flow
     public void getNext(){
         if(form != null){
             System.out.println("FULL");
@@ -58,8 +30,8 @@ public class ApprovalScreen extends Screen {
         }
         int nextID = App.workflow.GetNextWFItem("Approve");
         
+        // a non-negative nextID indicates that the workflow item was successfully gathered
         if(nextID >= 0){
-            
             try {
                 conn = DriverManager.getConnection(App.DB_URL, App.USER, App.PASS);
                 stmt = conn.createStatement();
@@ -82,12 +54,13 @@ public class ApprovalScreen extends Screen {
         return;
     }
 
+
+    //Method for filling each value of the form from the database
     void fillForm(){
         try {
             
             form.setID(rs.getInt("formID"));
-            //dateOfBirth, address, phoneNumber, email, dependentID, 
-            //DPfirstName, DPlastName, DPdateOfBirth, DPaddress, DPphoneNumber, DPemail
+            
             form.getParent().setPersonID(rs.getInt("immigrantID"));
             form.getParent().setFirstName(rs.getString("firstname"));
             form.getParent().setLastName(rs.getString("lastname"));
@@ -113,6 +86,7 @@ public class ApprovalScreen extends Screen {
 
     }
     
+    // method for filling all the fields of the User interface
     @FXML
     private void enterFields(){
         fxParentFirstName.setText(form.getParent().getFirstName());
@@ -142,6 +116,7 @@ public class ApprovalScreen extends Screen {
         App.setRoot("primary");
     }
 
+    // clears the screen for the user
     @FXML
     protected void clearScreen(){
         fxParentFirstName.setText("");
@@ -167,6 +142,7 @@ public class ApprovalScreen extends Screen {
         fxDenyDependentID.setText("");
     }
 
+    // approves the form and clears the screen, sends an email to the immigrant
     @FXML
     private void approveForm(){
         clearScreen();
@@ -174,6 +150,7 @@ public class ApprovalScreen extends Screen {
         form = null;
     }
 
+    // denies the form, returns it back for review
     @FXML
     private void denyForm(){
         clearScreen();
@@ -182,7 +159,7 @@ public class ApprovalScreen extends Screen {
     }
 
 
-    
+    // sends an email to the immigrant, does not have real functionality
     private void emailApproval(){
         System.out.println(form.getParent().getEmail());
     }

@@ -16,37 +16,7 @@ public class ReviewScreen extends Screen {
     DPfirstName, DPlastName, DPdateOfBirth, DPaddress, DPphoneNumber, DPemail FROM DependentForm WHERE formID = 
     """;
     
-    @FXML
-    private TextField fxParentFirstName;
-    @FXML
-    private TextField fxParentLastName;
-    @FXML
-    private TextField fxParentID;
-    @FXML
-    private TextField fxParentDateOfBirth;
-    @FXML
-    private TextField fxParentAddress;
-    @FXML
-    private TextField fxParentPhoneNumber;
-    @FXML
-    private TextField fxParentEmail;
-
-    @FXML
-    private TextField fxDependentFirstName;
-    @FXML
-    private TextField fxDependentLastName;
-    @FXML
-    private TextField fxDependentID;
-    @FXML
-    private TextField fxDependentDateOfBirth;
-    @FXML
-    private TextField fxDependentAddress;
-    @FXML
-    private TextField fxDependentPhoneNumber;
-    @FXML
-    private TextField fxDependentEmail;
-    @FXML
-    private TextField fxDependentParentID;
+   
 
     @FXML
     private void saveForm() throws IOException {
