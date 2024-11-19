@@ -171,13 +171,14 @@ public class ApprovalScreen extends Screen {
     private void approveForm(){
         clearScreen();
         emailApproval();
-
+        form = null;
     }
 
     @FXML
     private void denyForm(){
         clearScreen();
         App.workflow.AddWFItem(form.getID(), "Review");
+        form = null;
     }
 
 

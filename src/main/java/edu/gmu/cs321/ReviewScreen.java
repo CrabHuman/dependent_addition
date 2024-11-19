@@ -5,6 +5,8 @@ import java.util.Date;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+
+import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ReviewScreen extends Screen {
@@ -84,7 +86,35 @@ public class ReviewScreen extends Screen {
         if(nextID >= 0){
             
             try {
+                conn = DriverManager.getConnection(App.DB_URL, App.USER, App.PASS);
+                stmt = conn.createStatement();
                 rs = stmt.executeQuery(QUERY + nextID);
+                rs.next();
+                form = new DependentForm(new Immigrant(), new Dependent(), -1);
+
+
+                form.setID(rs.getInt("formID"));
+                //dateOfBirth, address, phoneNumber, email, dependentID, 
+                //DPfirstName, DPlastName, DPdateOfBirth, DPaddress, DPphoneNumber, DPemail
+                form.getParent().setPersonID(rs.getInt("immigrantID"));
+                form.getParent().setFirstName(rs.getString("firstname"));
+                form.getParent().setLastName(rs.getString("lastname"));
+                form.getParent().setDateOfBirth(new Date(rs.getLong("dateOfBirth")));
+                form.getParent().setAddress(rs.getString("address"));
+                form.getParent().setPhoneNumber(rs.getLong("phoneNumber"));
+                form.getParent().setEmail(rs.getString("email"));
+    
+                form.getDependent().setParent(form.getParent());
+                form.getDependent().setPersonID(rs.getInt("dependentID"));
+                form.getDependent().setFirstName(rs.getString("DPfirstname"));
+                form.getDependent().setLastName(rs.getString("DPlastname"));
+                form.getDependent().setDateOfBirth(new Date(rs.getLong("DPdateOfBirth")));
+                form.getDependent().setAddress(rs.getString("DPaddress"));
+                form.getDependent().setPhoneNumber(rs.getLong("DPphoneNumber"));
+                form.getDependent().setEmail(rs.getString("DPemail"));
+
+
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -93,6 +123,10 @@ public class ReviewScreen extends Screen {
             return;
         }
         //super.form = null;
+        
+
+
+
         
         fxParentFirstName.setText(super.form.getParent().getFirstName());
         fxParentLastName.setText(super.form.getParent().getLastName());
@@ -130,6 +164,6 @@ public class ReviewScreen extends Screen {
         fxDependentPhoneNumber.setText("");
         fxDependentEmail.setText("");
         fxDependentParentID.setText("");
-        super.form = NULL;
+        super.form = null;
     }
 }

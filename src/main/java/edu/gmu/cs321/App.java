@@ -131,7 +131,7 @@ public class App extends Application {
                 "', " + form.getDependent().getDateOfBirth().getTime() + ", '" + form.getDependent().getAddress() + 
                 "', " + form.getDependent().getPhoneNumber() + ", '" + form.getDependent().getEmail() + "');" );
     
-                App.workflow.AddWFItem(form.getID(), "Approve");
+                App.workflow.AddWFItem(form.getID(), "Review");
             } catch (SQLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
